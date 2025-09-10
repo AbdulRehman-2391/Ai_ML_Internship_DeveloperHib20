@@ -1,1 +1,83 @@
+Task 2: End-to-End ML Pipeline – Telco Customer Churn Prediction
+📌 Objective
 
+The goal of this task is to build a production-ready machine learning pipeline that predicts customer churn using the Telco Customer Churn dataset.
+This pipeline automates preprocessing, training, and model selection, making it reusable for real-world deployment.
+
+📂 Dataset
+
+Name: WA_Fn-UseC_-Telco-Customer-Churn.csv
+
+Target column: Churn (Yes/No)
+
+Features: Customer demographics, service details, billing & contract info.
+
+⚙️ Methodology
+1. Data Preprocessing
+
+Converted "TotalCharges" to numeric (errors="coerce").
+
+Dropped rows with missing values.
+
+Scaled numeric features with StandardScaler.
+
+Encoded categorical features with OneHotEncoder.
+
+2. Pipeline Construction
+
+Used Scikit-learn Pipeline with:
+
+ColumnTransformer (numeric + categorical preprocessing).
+
+Classifiers:
+
+Logistic Regression
+
+Random Forest
+
+3. Hyperparameter Tuning
+
+Applied GridSearchCV with 3-fold cross-validation.
+
+Parameters tuned:
+
+Logistic Regression → C = [0.1, 1, 10]
+
+Random Forest → n_estimators = [50, 100], max_depth = [5, 10]
+
+4. Model Evaluation
+
+Accuracy score on train and test data.
+
+Best model & parameters printed.
+
+5. Model Export
+
+Saved best pipeline using joblib.dump() → best_pipeline.pkl
+
+📊 Results
+
+Best Model: ✅ (depends on GridSearch outcome, usually Random Forest wins)
+
+Training Accuracy: ~ 0.80 – 0.85
+
+Test Accuracy: ~ 0.78 – 0.83
+(results may vary slightly depending on splits)
+
+📦 Files
+
+task2_pipeline.ipynb → Jupyter Notebook with complete code.
+
+best_pipeline.pkl → Saved best trained pipeline.
+
+README.md → Documentation (this file).
+
+🚀 Skills Gained
+
+End-to-end ML pipeline construction
+
+Preprocessing automation (scaling + encoding)
+
+Hyperparameter tuning with GridSearchCV
+
+Model persistence using Joblib
